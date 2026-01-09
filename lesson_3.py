@@ -28,7 +28,7 @@ def find_files(path: str, name_pattern: str = "*.java") -> str:
         if not os.path.exists(safe_path) or not os.path.isdir(safe_path):
             return "Error: Invalid or non-existent directory"
         
-        # Whitelist allowed patterns
+        # Allowed patterns
         allowed_patterns = ["*.java", "*.py", "*.js", "*.ts", "*.jsx", "*.tsx", "*.c", "*.cpp", "*.h"]
         if name_pattern not in allowed_patterns:
             return f"Error: Pattern '{name_pattern}' not allowed. Use one of: {', '.join(allowed_patterns)}"
@@ -62,7 +62,7 @@ def grep_pattern(file_path: str, pattern: str, case_insensitive: bool = True) ->
         if not os.path.exists(safe_file_path) or not os.path.isfile(safe_file_path):
             return "Error: File does not exist or is not a regular file"
         
-        # Whitelist allowed patterns for security
+        # Allowed patterns for security
         allowed_patterns = [
             "test", "@Test", "it\\(", "describe\\(", "def test_", "@pytest",
             "public.*test", "private.*test", "protected.*test"
